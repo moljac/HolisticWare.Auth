@@ -1,0 +1,6 @@
+[submodule "git-submodules/submodules-moljac/DotNetLibraryTemplate"]
+	path = git-submodules/submodules-moljac/DotNetLibraryTemplate
+	url = https://github.com/moljac/DotNetLibraryTemplate.git
+[submodule "git-submodules/originals-read-only/Xamarin.Auth"]
+	path = git-submodules/originals-read-only/Xamarin.Auth
+	url = https://github.com/xamarin/Xamarin.Auth.git
