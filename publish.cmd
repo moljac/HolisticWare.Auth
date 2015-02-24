@@ -12,10 +12,13 @@ set NUGET=.nuget\nuget
 ::	API_KEY
 ::
 set FILE=nuget-set-api-key.secure.cmd
-set FILE=test.txt
-If NOT exist %FILE% (
+
+If exist %FILE% (
 call %FILE%
 )
+
+echo API_KEY = %API_KEY%
+
 ::=============================================================================
 
 %NUGET% ^

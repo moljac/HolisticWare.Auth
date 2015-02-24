@@ -4,7 +4,7 @@ set NUGET=.nuget\nuget
 
 %NUGET% ^
 	pack ^
-	"src\HolisticWare.Auth.nuspec" ^
+	"src\Xamarin.Auth.nuspec" ^
 	-Symbols ^
 	-OutputDirectory artifacts ^
 	-Build ^
