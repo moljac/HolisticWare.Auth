@@ -19,7 +19,7 @@ using System.Text;
 using System.Net;
 using System.IO;
 
-#if !WINDOWS_PHONE && ! PORTABLE
+#if !PLATFORM_WINPHONE && ! PORTABLE
 using System.Runtime.Serialization.Formatters.Binary;
 #endif
 
@@ -176,7 +176,7 @@ namespace Xamarin.Auth
 
 		string SerializeCookies ()
 		{
-#if !WINDOWS_PHONE && ! PORTABLE
+#if !PLATFORM_WINPHONE && ! PORTABLE
 			var f = new BinaryFormatter ();
 			using (var s = new MemoryStream ()) {
 				f.Serialize (s, Cookies);
@@ -189,7 +189,7 @@ namespace Xamarin.Auth
 
 		static CookieContainer DeserializeCookies (string cookiesString)
 		{
-#if !WINDOWS_PHONE && ! PORTABLE
+#if !PLATFORM_WINPHONE && ! PORTABLE
 			var f = new BinaryFormatter ();
 			using (var s = new MemoryStream (Convert.FromBase64String (cookiesString))) {
 				return (CookieContainer)f.Deserialize (s);

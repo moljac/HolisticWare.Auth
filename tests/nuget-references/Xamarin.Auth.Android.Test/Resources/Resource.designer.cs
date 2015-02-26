@@ -26,6 +26,9 @@ namespace Xamarin.Auth.Android.Test
 		
 		public static void UpdateIdValues()
 		{
+			global::Xamarin.Auth.Resource.String.ApplicationName = global::Xamarin.Auth.Android.Test.Resource.String.ApplicationName;
+			global::Xamarin.Auth.Resource.String.Hello = global::Xamarin.Auth.Android.Test.Resource.String.Hello;
+			global::Xamarin.Auth.Resource.String.library_name = global::Xamarin.Auth.Android.Test.Resource.String.library_name;
 		}
 		
 		public partial class Attribute
@@ -93,10 +96,10 @@ namespace Xamarin.Auth.Android.Test
 		{
 			
 			// aapt resource value: 0x7f040001
-			public const int app_name = 2130968577;
+			public const int ApplicationName = 2130968577;
 			
 			// aapt resource value: 0x7f040000
-			public const int hello = 2130968576;
+			public const int Hello = 2130968576;
 			
 			static String()
 			{

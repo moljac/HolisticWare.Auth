@@ -9,7 +9,7 @@
 		http://semver.org/
 		-->
 		<version>
-			0.0.1-alpha-20150224
+			0.0.1-alpha-20150226-2338
 		</version>
 		<title>
 			Xamarin.Auth temporary repository
@@ -74,7 +74,7 @@
 			Windows Phone 8 Silverlight
 		-->
 		<file 
-			src="Xamarin.Auth\Xamarin.Auth.Portable\bin\Release\Xamarin.Auth.dll" 
+			src="Xamarin.Auth\Xamarin.Auth.WindowsPhone8\bin\Release\Xamarin.Auth.dll" 
 			target="lib\wp8\Xamarin.Auth.dll"
 			>
 		</file>
@@ -120,7 +120,7 @@
 			Xamarin.iOS Classic
 		-->
 		<file 
-			src="Xamarin.Auth\Xamarin.Auth.XamarinIOS.Classic\bin\iPhone\Release\Xamarin.Auth.dll" 
+			src="Xamarin.Auth\Xamarin.Auth.XamarinIOS.Classic\bin\Release\Xamarin.Auth.dll" 
 			target="lib\MonoTouch10\Xamarin.Auth.dll"
 			>
 		</file>

@@ -154,7 +154,11 @@ namespace Xamarin.Auth
 			} while (PhoneApplicationService.Current.State.ContainsKey (key));
 
 			PhoneApplicationService.Current.State[key] = this;
-			return new Uri ("/Xamarin.Auth.WindowsPhone;component/WebAuthenticatorPage.xaml?key=" + key, UriKind.Relative);
+
+			
+			System.Reflection.Assembly assembly = typeof(Authenticator).Assembly;
+			string assembly_name = assembly.GetName().Name;
+			return new Uri ("/" + assembly_name + ";component/WebAuthenticatorPage.xaml?key=" + key, UriKind.Relative);
 		}
 #else
 		/// <summary>

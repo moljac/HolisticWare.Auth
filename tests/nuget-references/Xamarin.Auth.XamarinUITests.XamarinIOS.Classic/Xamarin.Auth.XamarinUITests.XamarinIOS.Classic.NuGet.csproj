@@ -4,11 +4,11 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{4ECEC594-F1BE-4904-937A-8DDF7C7B5479}</ProjectGuid>
+    <ProjectGuid>{E2BEE375-7A04-41FF-9312-A82D6DE4A80D}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Xamarin.Auth.UnitTests.XamarinIOS.Classic</RootNamespace>
+    <RootNamespace>Xamarin.Auth.XamarinUITests.XamarinIOS.Classic</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>XamarinAuthUnitTestsXamarinIOSClassic</AssemblyName>
+    <AssemblyName>XamarinAuthXamarinUITestsXamarinIOSClassic</AssemblyName>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
   </PropertyGroup>
@@ -95,6 +95,9 @@
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
     <Reference Include="MonoTouch.NUnitLite" />
+    <Reference Include="Xamarin.Auth">
+      <HintPath>..\..\..\packages\HolisticWare.Auth.0.0.1-alpha-20150224\lib\MonoTouch10\Xamarin.Auth.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http.Primitives">
       <HintPath>..\..\..\packages\Microsoft.Net.Http.2.2.29\lib\monotouch\System.Net.Http.Primitives.dll</HintPath>
     </Reference>
