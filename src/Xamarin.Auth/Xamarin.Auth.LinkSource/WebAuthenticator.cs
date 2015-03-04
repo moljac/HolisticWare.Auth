@@ -18,17 +18,22 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Threading;
 
-#if PLATFORM_IOS
-using AuthenticateUIType = MonoTouch.UIKit.UIViewController;
-#elif PLATFORM_ANDROID
-using AuthenticateUIType = Android.Content.Intent;
-using UIContext = Android.Content.Context;
-#elif PLATFORM_WINPHONE
-using Microsoft.Phone.Shell;
-using AuthenticateUIType = System.Uri;
-#else
-using AuthenticateUIType = System.Object;
-#endif
+//--------------------------------------------------------------------
+//	Original defines
+//		usings are in WebAuthenticator.<Platform>.cs
+//
+//#if PLATFORM_IOS
+//using AuthenticateUIType = MonoTouch.UIKit.UIViewController;
+//#elif PLATFORM_ANDROID
+//using AuthenticateUIType = Android.Content.Intent;
+//using UIContext = Android.Content.Context;
+//#elif PLATFORM_WINPHONE
+//using Microsoft.Phone.Shell;
+//using AuthenticateUIType = System.Uri;
+//#else
+//using AuthenticateUIType = System.Object;
+//#endif
+//--------------------------------------------------------------------
 
 namespace Xamarin.Auth
 {
@@ -36,9 +41,9 @@ namespace Xamarin.Auth
 	/// An authenticator that displays a web page.
 	/// </summary>
 #if XAMARIN_AUTH_INTERNAL
-	internal abstract class WebAuthenticator : Authenticator
+	internal abstract partial class WebAuthenticator : Authenticator
 #else
-	public abstract class WebAuthenticator : Authenticator
+	public abstract partial class WebAuthenticator : Authenticator
 #endif
 	{
 		/// <summary>
@@ -83,19 +88,19 @@ namespace Xamarin.Auth
 		/// Clears all cookies.
 		/// </summary>
 		/// <seealso cref="ClearCookiesBeforeLogin"/>
-		public static void ClearCookies()
-		{
-#if PLATFORM_IOS
-			var store = MonoTouch.Foundation.NSHttpCookieStorage.SharedStorage;
-			var cookies = store.Cookies;
-			foreach (var c in cookies) {
-				store.DeleteCookie (c);
-			}
-#elif PLATFORM_ANDROID
-			Android.Webkit.CookieSyncManager.CreateInstance (Android.App.Application.Context);
-			Android.Webkit.CookieManager.Instance.RemoveAllCookie ();
-#endif
-		}
+		//public static void ClearCookies()
+		//{
+//#if PLATFORM_IOS
+			//var store = MonoTouch.Foundation.NSHttpCookieStorage.SharedStorage;
+			//var cookies = store.Cookies;
+			//foreach (var c in cookies) {
+			//	store.DeleteCookie (c);
+			//}
+//#elif PLATFORM_ANDROID
+			//Android.Webkit.CookieSyncManager.CreateInstance (Android.App.Application.Context);
+			//Android.Webkit.CookieManager.Instance.RemoveAllCookie ();
+//#endif
+		//}
 
 		/// <summary>
 		/// Occurs when the visual, user-interactive, browsing has completed but there
@@ -123,10 +128,10 @@ namespace Xamarin.Auth
 		/// <returns>
 		/// The UI that needs to be presented.
 		/// </returns>
-		protected override AuthenticateUIType GetPlatformUI ()
-		{
-			return new MonoTouch.UIKit.UINavigationController (new WebAuthenticatorController (this));
-		}
+		//protected override AuthenticateUIType GetPlatformUI ()
+		//{
+		//	return new MonoTouch.UIKit.UINavigationController (new WebAuthenticatorController (this));
+		//}
 #elif PLATFORM_ANDROID
 		/// <summary>
 		/// Gets the UI for this authenticator.
@@ -134,32 +139,32 @@ namespace Xamarin.Auth
 		/// <returns>
 		/// The UI that needs to be presented.
 		/// </returns>
-		protected override AuthenticateUIType GetPlatformUI (UIContext context)
-		{
-			var i = new global::Android.Content.Intent (context, typeof (WebAuthenticatorActivity));
-			i.PutExtra ("ClearCookies", ClearCookiesBeforeLogin);
-			var state = new WebAuthenticatorActivity.State {
-				Authenticator = this,
-			};
-			i.PutExtra ("StateKey", WebAuthenticatorActivity.StateRepo.Add (state));
-			return i;
-		}
+		//protected override AuthenticateUIType GetPlatformUI (UIContext context)
+		//{
+		//	var i = new global::Android.Content.Intent (context, typeof (WebAuthenticatorActivity));
+		//	i.PutExtra ("ClearCookies", ClearCookiesBeforeLogin);
+		//	var state = new WebAuthenticatorActivity.State {
+		//		Authenticator = this,
+		//	};
+		//	i.PutExtra ("StateKey", WebAuthenticatorActivity.StateRepo.Add (state));
+		//	return i;
+		//}
 #elif PLATFORM_WINPHONE
-		protected override AuthenticateUIType GetPlatformUI()
-		{
-			Random r = new Random();
-			string key;
-			do {
-				key = "xamarin_auth_" + r.Next();
-			} while (PhoneApplicationService.Current.State.ContainsKey (key));
-
-			PhoneApplicationService.Current.State[key] = this;
-
-			
-			System.Reflection.Assembly assembly = typeof(Authenticator).Assembly;
-			string assembly_name = assembly.GetName().Name;
-			return new Uri ("/" + assembly_name + ";component/WebAuthenticatorPage.xaml?key=" + key, UriKind.Relative);
-		}
+		//protected override AuthenticateUIType GetPlatformUI()
+		//{
+		//	Random r = new Random();
+		//	string key;
+		//	do {
+		//		key = "xamarin_auth_" + r.Next();
+		//	} while (PhoneApplicationService.Current.State.ContainsKey (key));
+		//
+		//	PhoneApplicationService.Current.State[key] = this;
+		//
+		//	
+		//	System.Reflection.Assembly assembly = typeof(Authenticator).Assembly;
+		//	string assembly_name = assembly.GetName().Name;
+		//	return new Uri ("/" + assembly_name + ";component/WebAuthenticatorPage.xaml?key=" + key, UriKind.Relative);
+		//}
 #else
 		/// <summary>
 		/// Gets the UI for this authenticator.
@@ -167,10 +172,10 @@ namespace Xamarin.Auth
 		/// <returns>
 		/// The UI that needs to be presented.
 		/// </returns>
-		protected override AuthenticateUIType GetPlatformUI ()
-		{
-			throw new NotSupportedException ("WebAuthenticator not supported on this platform.");
-		}
+		//protected override AuthenticateUIType GetPlatformUI ()
+		//{
+		//	throw new NotSupportedException ("WebAuthenticator not supported on this platform.");
+		//}
 #endif
 	}
 }

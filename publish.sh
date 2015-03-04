@@ -11,7 +11,7 @@ NUGET=.nuget\nuget
 #	following script sets only few environment variables
 #	API_KEY
 #
-FILE=nuget-set-api-key.secure.cmd
+FILE=nuget-set-api-key.secure.sh
 
 If exist %FILE% (
 call %FILE%

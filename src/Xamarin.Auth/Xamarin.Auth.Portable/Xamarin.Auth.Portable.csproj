@@ -93,6 +93,9 @@
     <Compile Include="..\Xamarin.Auth.LinkSource\WebUtilities.cs">
       <Link>WebUtilities.cs</Link>
     </Compile>
+    <Compile Include="Authenticator.Portable.cs" />
+    <Compile Include="FormAuthenticator.Portable.cs" />
+    <Compile Include="WebAuthenticator.Portable.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="HolisticWare.Core">

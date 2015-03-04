@@ -19,16 +19,21 @@ using System.Threading.Tasks;
 using System.Threading;
 using Xamarin.Utilities;
 
-#if PLATFORM_IOS
-using AuthenticateUIType = MonoTouch.UIKit.UIViewController;
-#elif PLATFORM_ANDROID
-using AuthenticateUIType = Android.Content.Intent;
-using UIContext = Android.Content.Context;
-#elif PLATFORM_WINPHONE
-using AuthenticateUIType = System.Uri;
-#else
-using AuthenticateUIType = System.Object;
-#endif
+//--------------------------------------------------------------------
+//	Original defines
+//		usings are in Authenticator.<Platform>.cs
+//
+//#if PLATFORM_IOS
+//using AuthenticateUIType = MonoTouch.UIKit.UIViewController;
+//#elif PLATFORM_ANDROID
+//using AuthenticateUIType = Android.Content.Intent;
+//using UIContext = Android.Content.Context;
+//#elif PLATFORM_WINPHONE
+//using AuthenticateUIType = System.Uri;
+//#else
+//using AuthenticateUIType = System.Object;
+//#endif
+//--------------------------------------------------------------------
 
 namespace Xamarin.Auth
 {
@@ -36,9 +41,9 @@ namespace Xamarin.Auth
 	/// A process and user interface to authenticate a user.
 	/// </summary>
 #if XAMARIN_AUTH_INTERNAL
-	internal abstract class Authenticator
+	internal abstract partial class Authenticator
 #else
-	public abstract class Authenticator
+	public abstract partial class Authenticator
 #endif
 	{
 		/// <summary>
@@ -82,13 +87,13 @@ namespace Xamarin.Auth
 		}
 
 #if PLATFORM_ANDROID
-		UIContext context;
-		public AuthenticateUIType GetUI (UIContext context)
-		{
-			this.context = context;
-			return GetPlatformUI (context);
-		}
-		protected abstract AuthenticateUIType GetPlatformUI (UIContext context);
+		//UIContext context;
+		//public AuthenticateUIType GetUI (UIContext context)
+		//{
+		//	this.context = context;
+		//	return GetPlatformUI (context);
+		//}
+		//protected abstract AuthenticateUIType GetPlatformUI (UIContext context);
 #else
 		/// <summary>
 		/// Gets the UI for this authenticator.
@@ -96,10 +101,10 @@ namespace Xamarin.Auth
 		/// <returns>
 		/// The UI that needs to be presented.
 		/// </returns>
-		public AuthenticateUIType GetUI ()
-		{
-			return GetPlatformUI ();
-		}
+		//public AuthenticateUIType GetUI ()
+		//{
+		//	return GetPlatformUI ();
+		//}
 
 		/// <summary>
 		/// Gets the UI for this authenticator.
@@ -107,7 +112,7 @@ namespace Xamarin.Auth
 		/// <returns>
 		/// The UI that needs to be presented.
 		/// </returns>
-		protected abstract AuthenticateUIType GetPlatformUI ();
+		//protected abstract AuthenticateUIType GetPlatformUI ();
 #endif
 
 		/// <summary>

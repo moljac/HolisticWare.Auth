@@ -111,6 +111,27 @@
     <Compile Include="..\Xamarin.Auth.LinkSource\WebUtilities.cs">
       <Link>WebUtilities.cs</Link>
     </Compile>
+    <Compile Include="..\Xamarin.Auth.XamarinIOS\PlatformSpecific\ACAccountWrapper.cs">
+      <Link>PlatformSpecific\ACAccountWrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\Xamarin.Auth.XamarinIOS\PlatformSpecific\FormAuthenticatorController.cs">
+      <Link>PlatformSpecific\FormAuthenticatorController.cs</Link>
+    </Compile>
+    <Compile Include="..\Xamarin.Auth.XamarinIOS\PlatformSpecific\KeyChainAccountStore.cs">
+      <Link>PlatformSpecific\KeyChainAccountStore.cs</Link>
+    </Compile>
+    <Compile Include="..\Xamarin.Auth.XamarinIOS\PlatformSpecific\ProgressLabel.cs">
+      <Link>PlatformSpecific\ProgressLabel.cs</Link>
+    </Compile>
+    <Compile Include="..\Xamarin.Auth.XamarinIOS\PlatformSpecific\UIViewControllerEx.cs">
+      <Link>PlatformSpecific\UIViewControllerEx.cs</Link>
+    </Compile>
+    <Compile Include="..\Xamarin.Auth.XamarinIOS\PlatformSpecific\WebAuthenticatorController.cs">
+      <Link>PlatformSpecific\WebAuthenticatorController.cs</Link>
+    </Compile>
+    <Compile Include="Authenticator.XamarinIOS.Classic.cs" />
+    <Compile Include="FormAuthenticator.XamarinIOS.Classic.cs" />
+    <Compile Include="WebAuthenticator.XamarinIOS.Classic.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

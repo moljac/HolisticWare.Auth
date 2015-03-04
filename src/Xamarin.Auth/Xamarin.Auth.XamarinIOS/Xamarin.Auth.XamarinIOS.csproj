@@ -17,7 +17,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\iPhone\Debug</OutputPath>
-    <DefineConstants>DEBUG</DefineConstants>
+    <DefineConstants>DEBUG;__UNIFIED__</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -28,7 +28,8 @@
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\iPhone\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
+	  <DefineConstants>__UNIFIED__</DefineConstants>
+	  <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
@@ -88,6 +89,17 @@
     <Compile Include="..\Xamarin.Auth.LinkSource\WebUtilities.cs">
       <Link>WebUtilities.cs</Link>
     </Compile>
+    <Compile Include="Authenticator.XamarinIOS.cs" />
+    <Compile Include="FormAuthenticator.XamarinIOS.cs" />
+    <Compile Include="PlatformSpecific\ACAccountWrapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PlatformSpecific\FormAuthenticatorController.cs" />
+    <Compile Include="PlatformSpecific\KeyChainAccountStore.cs" />
+    <Compile Include="PlatformSpecific\ProgressLabel.cs" />
+    <Compile Include="PlatformSpecific\UIViewControllerEx.cs" />
+    <Compile Include="PlatformSpecific\WebAuthenticatorController.cs" />
+    <Compile Include="WebAuthenticator.XamarinIOS.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

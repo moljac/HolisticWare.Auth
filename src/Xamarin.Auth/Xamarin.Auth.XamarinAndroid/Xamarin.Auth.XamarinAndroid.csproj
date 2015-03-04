@@ -122,7 +122,15 @@
     <Compile Include="..\Xamarin.Auth.LinkSource\WebUtilities.cs">
       <Link>WebUtilities.cs</Link>
     </Compile>
+    <Compile Include="Authenticator.XamarinAndroid.cs" />
+    <Compile Include="FormAuthenticator.XamarinAndroid.cs" />
+    <Compile Include="PlatformSpecific\ActivityEx.cs" />
+    <Compile Include="PlatformSpecific\ActivityStateRepository.cs" />
+    <Compile Include="PlatformSpecific\AndroidAccountStore.cs" />
+    <Compile Include="PlatformSpecific\FormAuthenticatorActivity.cs" />
+    <Compile Include="PlatformSpecific\WebAuthenticatorActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
+    <Compile Include="WebAuthenticator.XamarinAndroid.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

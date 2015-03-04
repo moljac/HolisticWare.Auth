@@ -19,16 +19,21 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Threading;
 
-#if PLATFORM_IOS
-using AuthenticateUIType = MonoTouch.UIKit.UIViewController;
-#elif PLATFORM_ANDROID
-using AuthenticateUIType = Android.Content.Intent;
-using UIContext = Android.Content.Context;
-#elif PLATFORM_WINPHONE
-using AuthenticateUIType = System.Uri;
-#else
-using AuthenticateUIType = System.Object;
-#endif
+//--------------------------------------------------------------------
+//	Original defines
+//		usings are in FormAuthenticator.<Platform>.cs
+//
+//#if PLATFORM_IOS
+//using AuthenticateUIType = MonoTouch.UIKit.UIViewController;
+//#elif PLATFORM_ANDROID
+//using AuthenticateUIType = Android.Content.Intent;
+//using UIContext = Android.Content.Context;
+//#elif PLATFORM_WINPHONE
+//using AuthenticateUIType = System.Uri;
+//#else
+//using AuthenticateUIType = System.Object;
+//#endif
+//--------------------------------------------------------------------
 
 namespace Xamarin.Auth
 {
@@ -36,9 +41,9 @@ namespace Xamarin.Auth
 	/// An authenticator that presents a form to the user.
 	/// </summary>
 #if XAMARIN_AUTH_INTERNAL
-	internal abstract class FormAuthenticator : Authenticator
+	internal abstract partial class FormAuthenticator : Authenticator
 #else
-	public abstract class FormAuthenticator : Authenticator
+	public abstract partial class FormAuthenticator : Authenticator
 #endif
 	{
 		/// <summary>
@@ -103,10 +108,10 @@ namespace Xamarin.Auth
 		/// <returns>
 		/// The UI that needs to be presented.
 		/// </returns>
-		protected override AuthenticateUIType GetPlatformUI ()
-		{
-			return new MonoTouch.UIKit.UINavigationController (new FormAuthenticatorController (this));
-		}
+		//protected override AuthenticateUIType GetPlatformUI ()
+		//{
+		//	return new MonoTouch.UIKit.UINavigationController (new FormAuthenticatorController (this));
+		//}
 #elif PLATFORM_ANDROID
 		/// <summary>
 		/// Gets the UI to present this form.
@@ -114,15 +119,15 @@ namespace Xamarin.Auth
 		/// <returns>
 		/// The UI that needs to be presented.
 		/// </returns>
-		protected override AuthenticateUIType GetPlatformUI (UIContext context)
-		{
-			var i = new global::Android.Content.Intent (context, typeof (FormAuthenticatorActivity));
-			var state = new FormAuthenticatorActivity.State {
-				Authenticator = this,
-			};
-			i.PutExtra ("StateKey", FormAuthenticatorActivity.StateRepo.Add (state));
-			return i;
-		}
+		//protected override AuthenticateUIType GetPlatformUI (UIContext context)
+		//{
+		//	var i = new global::Android.Content.Intent (context, typeof (FormAuthenticatorActivity));
+		//	var state = new FormAuthenticatorActivity.State {
+		//		Authenticator = this,
+		//	};
+		//	i.PutExtra ("StateKey", FormAuthenticatorActivity.StateRepo.Add (state));
+		//	return i;
+		//}
 #else
 		/// <summary>
 		/// Gets the UI to present this form.
@@ -130,10 +135,10 @@ namespace Xamarin.Auth
 		/// <returns>
 		/// The UI that needs to be presented.
 		/// </returns>
-		protected override AuthenticateUIType GetPlatformUI ()
-		{
-			throw new NotSupportedException ("FormAuthenticator not supported on this platform.");
-		}
+		//protected override AuthenticateUIType GetPlatformUI ()
+		//{
+		//	throw new NotSupportedException ("FormAuthenticator not supported on this platform.");
+		//}
 #endif
 	}
 
