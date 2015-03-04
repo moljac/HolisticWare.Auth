@@ -113,6 +113,9 @@ namespace Xamarin.Auth
 			this.callbackUrl = callbackUrl;
 
 			this.getUsernameAsync = getUsernameAsync;
+
+			this.HttpWebClientFrameworkType = Auth.HttpWebClientFrameworkType.WebRequest;
+
 		}
 
 		/// <summary>
@@ -132,20 +135,30 @@ namespace Xamarin.Auth
 				consumerSecret,
 				"");
 
-			return req.GetResponseAsync ().ContinueWith (respTask => {
+			if (this.HttpWebClientFrameworkType == HttpWebClientFrameworkType.WebRequest)
+			{
+				return req.GetResponseAsync().ContinueWith(respTask =>
+				{
 
-				var content = respTask.Result.GetResponseText ();
+					var content = respTask.Result.GetResponseText();
 
-				var r = WebEx.FormDecode (content);
+					var r = WebEx.FormDecode(content);
 
-				token = r["oauth_token"];
-				tokenSecret = r["oauth_token_secret"];
+					token = r["oauth_token"];
+					tokenSecret = r["oauth_token_secret"];
 
-				string paramType = authorizeUrl.AbsoluteUri.IndexOf("?") >= 0 ? "&" : "?";
+					string paramType = authorizeUrl.AbsoluteUri.IndexOf("?") >= 0 ? "&" : "?";
 
-				var url = authorizeUrl.AbsoluteUri + paramType + "oauth_token=" + Uri.EscapeDataString (token);
-				return new Uri (url);
-			});
+					var url = authorizeUrl.AbsoluteUri + paramType + "oauth_token=" + Uri.EscapeDataString(token);
+					return new Uri(url);
+				});
+			}
+			else if (this.HttpWebClientFrameworkType == HttpWebClientFrameworkType.HttpClient)
+			{
+				throw new NotImplementedException("HttpClient implementation!");
+			}
+
+			return null;
 		}
 
 		/// <summary>
@@ -189,28 +202,49 @@ namespace Xamarin.Auth
 				consumerKey,
 				consumerSecret,
 				tokenSecret);
-			
-			return req.GetResponseAsync ().ContinueWith (respTask => {				
-				var content = respTask.Result.GetResponseText ();
 
-				var accountProperties = WebEx.FormDecode (content);
-				accountProperties["oauth_consumer_key"] = consumerKey;
-				accountProperties["oauth_consumer_secret"] = consumerSecret;
+			if (this.HttpWebClientFrameworkType == HttpWebClientFrameworkType.WebRequest)
+			{
+				return req.GetResponseAsync().ContinueWith(respTask =>
+				{
+					var content = respTask.Result.GetResponseText();
 
-				if (getUsernameAsync != null) {
-					getUsernameAsync (accountProperties).ContinueWith (uTask => {
-						if (uTask.IsFaulted) {
-							OnError (uTask.Exception);
-						}
-						else {
-							OnSucceeded (uTask.Result, accountProperties);
-						}
-					});
-				}
-				else {
-					OnSucceeded ("", accountProperties);
-				}
-			});
+					var accountProperties = WebEx.FormDecode(content);
+					accountProperties["oauth_consumer_key"] = consumerKey;
+					accountProperties["oauth_consumer_secret"] = consumerSecret;
+
+					if (getUsernameAsync != null)
+					{
+						getUsernameAsync(accountProperties).ContinueWith(uTask =>
+						{
+							if (uTask.IsFaulted)
+							{
+								OnError(uTask.Exception);
+							}
+							else
+							{
+								OnSucceeded(uTask.Result, accountProperties);
+							}
+						});
+					}
+					else
+					{
+						OnSucceeded("", accountProperties);
+					}
+				});
+			}
+			else if (this.HttpWebClientFrameworkType == HttpWebClientFrameworkType.HttpClient)
+			{
+				throw new NotImplementedException("HttpClient implementation!");
+			}
+
+			return null;
+		}
+
+		public HttpWebClientFrameworkType HttpWebClientFrameworkType 
+		{
+			get; 
+			set;
 		}
 	}
 }

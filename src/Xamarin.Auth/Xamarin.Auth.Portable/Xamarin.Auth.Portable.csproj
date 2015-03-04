@@ -95,6 +95,7 @@
     </Compile>
     <Compile Include="Authenticator.Portable.cs" />
     <Compile Include="FormAuthenticator.Portable.cs" />
+    <Compile Include="HttpWebClientFrameworkType.cs" />
     <Compile Include="WebAuthenticator.Portable.cs" />
   </ItemGroup>
   <ItemGroup>

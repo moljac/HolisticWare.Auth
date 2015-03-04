@@ -28,8 +28,8 @@
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\iPhone\Release</OutputPath>
-	  <DefineConstants>__UNIFIED__</DefineConstants>
-	  <ErrorReport>prompt</ErrorReport>
+    <DefineConstants>__UNIFIED__</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
@@ -88,6 +88,9 @@
     </Compile>
     <Compile Include="..\Xamarin.Auth.LinkSource\WebUtilities.cs">
       <Link>WebUtilities.cs</Link>
+    </Compile>
+    <Compile Include="..\Xamarin.Auth.XamarinAndroid\HttpWebClientFrameworkType.cs">
+      <Link>HttpWebClientFrameworkType.cs</Link>
     </Compile>
     <Compile Include="Authenticator.XamarinIOS.cs" />
     <Compile Include="FormAuthenticator.XamarinIOS.cs" />

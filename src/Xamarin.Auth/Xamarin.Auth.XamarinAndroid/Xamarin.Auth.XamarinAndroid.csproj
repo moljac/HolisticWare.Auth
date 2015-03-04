@@ -124,6 +124,7 @@
     </Compile>
     <Compile Include="Authenticator.XamarinAndroid.cs" />
     <Compile Include="FormAuthenticator.XamarinAndroid.cs" />
+    <Compile Include="HttpWebClientFrameworkType.cs" />
     <Compile Include="PlatformSpecific\ActivityEx.cs" />
     <Compile Include="PlatformSpecific\ActivityStateRepository.cs" />
     <Compile Include="PlatformSpecific\AndroidAccountStore.cs" />

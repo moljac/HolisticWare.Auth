@@ -308,6 +308,7 @@ namespace Xamarin.Auth
 		{
 			var content = new FormUrlEncodedContent (queryValues);
 
+
 			HttpClient client = new HttpClient();
 			HttpResponseMessage response = await client.PostAsync (accessTokenUrl, content).ConfigureAwait (false);
 			string text = await response.Content.ReadAsStringAsync().ConfigureAwait (false);
@@ -346,6 +347,12 @@ namespace Xamarin.Auth
 			} else {
 				OnSucceeded ("", accountProperties);
 			}
+		}
+
+		public HttpWebClientFrameworkType HttpWebClientUsed 
+		{
+			get; 
+			set; 
 		}
 	}
 }
