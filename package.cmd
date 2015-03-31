@@ -2,9 +2,11 @@
 
 set NUGET=.nuget\nuget
 
+del /q artifacts\*.*
+
 %NUGET% ^
 	pack ^
-	"src\HolisticWare.Auth.nuspec" ^
+	"src.HolisticWare\HolisticWare.Auth.nuspec" ^
 	-Symbols ^
 	-OutputDirectory artifacts ^
 	-Build ^
