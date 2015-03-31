@@ -27,33 +27,34 @@ Xamarin.Auth projects:
 
 Xamarin.Auth = HolisticWare.Auth - nuget(HolisticWare.Core.Json) + dependency(System.Json)
 
-System.Jsom
+System.Json	
 
-*	framework assembly for Xamarin.Android and Xamarin.iOS
-*	linked source for WindowsPhone8
+*	framework assembly for Xamarin.Android and Xamarin.iOS		
+*	linked source for WindowsPhone8			
 
-get-Project Xamarin.Auth.LinkSource			| UnInstall-Package 	HolisticWare.Core.Json
-get-Project Xamarin.Auth.LinkSource			| UnInstall-Package 	HolisticWare.Core.Reflection
-get-Project Xamarin.Auth.LinkSource			| UnInstall-Package 	HolisticWare.Core
-get-Project Xamarin.Auth.Portable			| UnInstall-Package 	HolisticWare.Core.Json
-get-Project Xamarin.Auth.Portable			| UnInstall-Package 	HolisticWare.Core.Reflection
-get-Project Xamarin.Auth.Portable			| UnInstall-Package 	HolisticWare.Core
-get-Project Xamarin.Auth.XamarinAndroid		| UnInstall-Package 	HolisticWare.Core.Json
-get-Project Xamarin.Auth.XamarinAndroid		| UnInstall-Package 	HolisticWare.Core.Reflection
-get-Project Xamarin.Auth.XamarinAndroid		| UnInstall-Package 	HolisticWare.Core
-get-Project Xamarin.Auth.XamarinIOS			| UnInstall-Package 	HolisticWare.Core.Json
-get-Project Xamarin.Auth.XamarinIOS			| UnInstall-Package 	HolisticWare.Core.Reflection
-get-Project Xamarin.Auth.XamarinIOS			| UnInstall-Package 	HolisticWare.Core
-get-Project Xamarin.Auth.XamarinIOS.Classic	| UnInstall-Package 	HolisticWare.Core.Json
-get-Project Xamarin.Auth.XamarinIOS.Classic	| UnInstall-Package 	HolisticWare.Core.Reflection
-get-Project Xamarin.Auth.XamarinIOS.Classic	| UnInstall-Package 	HolisticWare.Core
-get-Project Xamarin.Auth.WindowsPhone8		| UnInstall-Package 	HolisticWare.Core.Json
-get-Project Xamarin.Auth.WindowsPhone8		| UnInstall-Package 	HolisticWare.Core.Reflection
-get-Project Xamarin.Auth.WindowsPhone8		| UnInstall-Package 	HolisticWare.Core
 
-get-Project Xamarin.Auth.Sample.WinPhone	| UnInstall-Package 	HolisticWare.Core.Json
-get-Project Xamarin.Auth.Sample.WinPhone	| UnInstall-Package 	HolisticWare.Core.Reflection
-get-Project Xamarin.Auth.Sample.WinPhone	| UnInstall-Package 	HolisticWare.Core
+
+	get-Project Xamarin.Auth.LinkSource			| UnInstall-Package 	HolisticWare.Core.Json
+	get-Project Xamarin.Auth.LinkSource			| UnInstall-Package 	HolisticWare.Core.Reflection
+	get-Project Xamarin.Auth.LinkSource			| UnInstall-Package 	HolisticWare.Core
+	get-Project Xamarin.Auth.Portable			| UnInstall-Package 	HolisticWare.Core.Json
+	get-Project Xamarin.Auth.Portable			| UnInstall-Package 	HolisticWare.Core.Reflection
+	get-Project Xamarin.Auth.Portable			| UnInstall-Package 	HolisticWare.Core
+	get-Project Xamarin.Auth.XamarinAndroid		| UnInstall-Package 	HolisticWare.Core.Json
+	get-Project Xamarin.Auth.XamarinAndroid		| UnInstall-Package 	HolisticWare.Core.Reflection
+	get-Project Xamarin.Auth.XamarinAndroid		| UnInstall-Package 	HolisticWare.Core
+	get-Project Xamarin.Auth.XamarinIOS			| UnInstall-Package 	HolisticWare.Core.Json
+	get-Project Xamarin.Auth.XamarinIOS			| UnInstall-Package 	HolisticWare.Core.Reflection
+	get-Project Xamarin.Auth.XamarinIOS			| UnInstall-Package 	HolisticWare.Core
+	get-Project Xamarin.Auth.XamarinIOS.Classic	| UnInstall-Package 	HolisticWare.Core.Json
+	get-Project Xamarin.Auth.XamarinIOS.Classic	| UnInstall-Package 	HolisticWare.Core.Reflection
+	get-Project Xamarin.Auth.XamarinIOS.Classic	| UnInstall-Package 	HolisticWare.Core
+	get-Project Xamarin.Auth.WindowsPhone8		| UnInstall-Package 	HolisticWare.Core.Json
+	get-Project Xamarin.Auth.WindowsPhone8		| UnInstall-Package 	HolisticWare.Core.Reflection
+	get-Project Xamarin.Auth.WindowsPhone8		| UnInstall-Package 	HolisticWare.Core
+	get-Project Xamarin.Auth.Sample.WinPhone	| UnInstall-Package 	HolisticWare.Core.Json
+	get-Project Xamarin.Auth.Sample.WinPhone	| UnInstall-Package 	HolisticWare.Core.Reflection
+	get-Project Xamarin.Auth.Sample.WinPhone	| UnInstall-Package 	HolisticWare.Core
 
 
 
