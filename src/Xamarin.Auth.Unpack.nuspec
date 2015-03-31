@@ -9,7 +9,7 @@
 		http://semver.org/
 		-->
 		<version>
-			0.0.1-alpha-20150331-1528
+			0.0.1-alpha-20150331-2256
 		</version>
 		<title>
 			Xamarin.Auth.Unpack
@@ -54,13 +54,84 @@
 			xamarin.forms, 
 			ios,  monotouch
 		</tags>
-		<dependencies>
-			<!-- 
+		<frameworkAssemblies>
+			<!--
+				
+				MonoTouch0.0	== 		MonoTouch		// any version >= 0.0 (all verions)
+				MonoAndroid0.0	==		MonoAndroid		// any version >= 0.0 (all verions)
 			-->
+			<frameworkAssembly 
+				assemblyName="System.Json" 
+				targetFramework="MonoTouch0.0" 
+				/>
+			<frameworkAssembly 
+				assemblyName="System.Json" 
+				targetFramework="MonoAndroid0.0" 
+				/>
+		</frameworkAssemblies>
+		<dependencies>
+			<!--
+				nuget dependencies
+			-->
+		
+			<!-- 
+			removed because of:
+			
+				1.	whitelisting for size count in Xamarin Starter
+				2.	packaging another dependency
+				
+			HolisticWare.Core.Json
+			
+				nuget advanced/bait-and-switch package for missing 
+				Silverlight's System.Json assembly and namespace.
+				
 			<dependency id="HolisticWare.Core.Json" version="1.0.0" />
+			-->
+		  <group>
+			<!--
+				Conditional:
+				http://stackoverflow.com/questions/13688536/how-do-i-specify-conditional-dependencies-based-on-target-framework-in-nuget				
+			-->
+			<!-- 
+				group has no targetFramework defined , so get packages for all targets in projects
+				Always include regardless of target framework 
+			-->
+		  </group>
+		  <group targetFramework="net40">
+			<!-- 
+				Also include the full CSL if it's full framework 
+			-->
+		  </group>
+		  <group targetFramework="portable-win+sl50+wp8">
+			<!-- 
+				Otherwise include the Portable CSL
+			-->
+		  </group>
 		</dependencies>
+		
+		
+		
 	</metadata>
+	
 	<files>
+		<!--
+			A package can include a readme.txt file in the root of the package. 
+			This file will be displayed in Visual Studio immediately after the 
+			package is installed.
+			
+
+			If the package is installed because it is a dependency of another package, 
+			the readme.txt file will not be opened. Only the readme.txt file of the 
+			package that the user is explicitly installing will be shown.
+
+			Show readme
+			
+		<file 
+			src="readme.txt" 
+			target="" 
+			/>
+		-->
+
 		<!--
 			Core - Portable
 		-->

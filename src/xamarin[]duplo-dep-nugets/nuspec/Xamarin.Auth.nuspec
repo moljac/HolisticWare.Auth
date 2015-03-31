@@ -9,7 +9,7 @@
 		http://semver.org/
 		-->
 		<version>
-			0.0.1-alpha-20150327-2044
+			0.0.1-alpha
 		</version>
 		<title>
 			Xamarin.Auth
@@ -54,13 +54,18 @@
 			xamarin.forms, 
 			ios,  monotouch
 		</tags>
-		<dependencies>
-			<!-- 
-			-->
-			<dependency id="HolisticWare.Core.Json" version="1.0.0" />
-		</dependencies>
+		<frameworkAssemblies>
+			<frameworkAssembly 
+				assemblyName="System.Json" 
+				targetFramework="MonoTouch0.0" 
+				/>
+			<frameworkAssembly 
+				assemblyName="System.Json" 
+				targetFramework="MonoAndroid0.0" 
+				/>
+		</frameworkAssemblies>
 	</metadata>
-	<files>
+	<files>	
 		<!--
 			Core - Portable
 		-->
