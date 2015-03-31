@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+	<metadata minClientVersion="2.8.1">
+		<id>
+			Xamarin.Auth.Unpack
+		</id>
+		<!--
+		SemVer - Semantic Versioning
+		http://semver.org/
+		-->
+		<version>
+			0.0.1-alpha-20150327-2044
+		</version>
+		<title>
+			Xamarin.Auth.Unpack
+		</title>
+		<authors>
+			Xamarin
+		</authors>
+		<owners>
+			Xamarin
+		</owners>
+		<copyright>
+			Copyright 2013-2015
+		</copyright>
+		<licenseUrl>
+			https://github.com/xamarin/Xamarin.Auth/blob/master/License.md
+		</licenseUrl>
+		<projectUrl>
+			https://github.com/xamarin/Xamarin.Auth
+		</projectUrl>
+		<iconUrl>
+			https://xamarin-component-icons.s3.amazonaws.com/Xamarin.Auth.png
+		</iconUrl>
+		<requireLicenseAcceptance>
+			false
+		</requireLicenseAcceptance>
+		<description>
+			A cross-platform API for authenticating users and storing their accounts.
+		</description>
+		<summary>
+			Xamarin.Auth helps you authenticate users via standard authentication 
+			mechanisms (e.g. OAuth 1.0 and 2.0), and store user credentials. 
+			It's also straightforward to add support for non-standard authentication schemes. 
+			The library is cross-platform, so once you learn it on iOS, you're all set on 
+			Android.
+		</summary>
+		<tags>
+			xamarin, pcl, 
+			plugin for xamarin, plugin, 
+			settings, 
+			windows phone, winphone, wp8, winrt, 
+			android, monoandroid, monodroid,
+			xamarin.forms, 
+			ios,  monotouch
+		</tags>
+		<dependencies>
+			<!-- 
+			-->
+			<dependency id="HolisticWare.Core.Json" version="1.0.0" />
+		</dependencies>
+	</metadata>
+	<files>
+		<!--
+			Core - Portable
+		-->
+		<file 
+			src="Xamarin.Auth\Xamarin.Auth.Portable\bin\Release\Xamarin.Auth.dll" 
+			target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+XamarinIOS10\Xamarin.Auth.dll"
+			>
+		</file>
+
+		<!--
+			Windows Phone 8 Silverlight
+		-->
+		<file 
+			src="Xamarin.Auth\Xamarin.Auth.WindowsPhone8\bin\Release\Xamarin.Auth.dll" 
+			target="lib\wp8\Xamarin.Auth.dll"
+			>
+		</file>
+
+		<!--
+			Windows Phone 8.1
+		-->
+		<file
+			src="Xamarin.Auth\Xamarin.Auth.Portable\bin\Release\Xamarin.Auth.dll" 
+			target="lib\wpa81\Xamarin.Auth.dll"
+			>
+		</file>
+
+		<!--
+			Windows Store
+		-->
+		<file
+			src="Xamarin.Auth\Xamarin.Auth.Portable\bin\Release\Xamarin.Auth.dll" 
+			target="lib\win8\Xamarin.Auth.dll"
+			>
+		</file>
+		
+		<!--
+			Xamarin.Android
+		-->
+		<file 
+			src="Xamarin.Auth\Xamarin.Auth.XamarinAndroid\bin\Release\Xamarin.Auth.dll" 
+			target="lib\MonoAndroid10\Xamarin.Auth.dll"
+			>
+		</file>
+
+		<!--
+			Xamarin.iOS
+				Unified
+		-->
+		<file
+			src="Xamarin.Auth\Xamarin.Auth.XamarinIOS\bin\iPhone\Release\Xamarin.Auth.dll" 
+			target="lib\Xamarin.iOS10\Xamarin.Auth.dll" 
+			>
+		</file>
+
+		<!--
+			Xamarin.iOS Classic
+		-->
+		<file 
+			src="Xamarin.Auth\Xamarin.Auth.XamarinIOS.Classic\bin\Release\Xamarin.Auth.dll" 
+			target="lib\MonoTouch10\Xamarin.Auth.dll"
+			>
+		</file>
+
+	</files>
+</package>
