@@ -63,7 +63,7 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Authenticator.cs" />
     <Compile Include="AuthException.cs" />
-    <Compile Include="HttpWebClientFrameworkType.cs" />
+    <Compile Include="v.2\HttpWebClientFrameworkType.cs" />
     <Compile Include="ExceptionEx.cs" />
     <Compile Include="FormAuthenticator.cs" />
     <Compile Include="OAuth1.cs" />

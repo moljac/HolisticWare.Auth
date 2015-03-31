@@ -126,6 +126,9 @@
     <Compile Include="..\Xamarin.Auth.LinkSource\Response.cs">
       <Link>Response.cs</Link>
     </Compile>
+    <Compile Include="..\Xamarin.Auth.LinkSource\v.2\HttpWebClientFrameworkType.cs">
+      <Link>v.2\HttpWebClientFrameworkType.cs</Link>
+    </Compile>
     <Compile Include="..\Xamarin.Auth.LinkSource\WebAuthenticator.cs">
       <Link>WebAuthenticator.cs</Link>
     </Compile>
@@ -140,7 +143,6 @@
     </Compile>
     <Compile Include="Authenticator.WindowsPhone.cs" />
     <Compile Include="FormAuthenticator.WindowsPhone.cs" />
-    <Compile Include="HttpWebClientFrameworkType.cs" />
     <Compile Include="WebAuthenticator.WindowsPhone.cs" />
     <Compile Include="WebAuthenticatorPage.xaml.cs">
       <DependentUpon>WebAuthenticatorPage.xaml</DependentUpon>
