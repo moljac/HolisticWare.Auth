@@ -25,4 +25,5 @@ echo API_KEY = %API_KEY%
 	push ^
 	artifacts\*.nupkg
 	
-@IF %ERRORLEVEL% NEQ 0 PAUSE	
+pause
+::@IF %ERRORLEVEL% NEQ 0 PAUSE	
