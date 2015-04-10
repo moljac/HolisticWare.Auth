@@ -74,12 +74,14 @@
     <Compile Include="WebEx.cs" />
     <Compile Include="WebRedirectAuthenticator.cs" />
     <Compile Include="WebUtilities.cs" />
+    <Compile Include="System\Decimal.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
+    <Folder Include="System\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

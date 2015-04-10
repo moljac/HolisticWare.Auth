@@ -233,8 +233,11 @@ namespace System.Runtime.Serialization.Json
 				if (fdigits == 0)
 					throw JsonError ("Invalid JSON numeric literal; extra dot");
 			}
-			frac = Decimal.Round (frac, fdigits);
-
+			#if PORTABLE
+			frac = Core.Decimal.Round (frac, fdigits);
+			#else
+			frac = Decimal.Round(frac, fdigits);
+			#endif
 			c = PeekChar ();
 			if (c != 'e' && c != 'E') {
 				if (!hasFrac) {

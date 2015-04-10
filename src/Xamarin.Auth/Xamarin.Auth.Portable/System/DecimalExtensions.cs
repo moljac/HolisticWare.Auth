@@ -9,7 +9,15 @@ namespace System
 	{
 		public static System.Decimal Round(this System.Decimal d)
 		{
+
 			return System.Math.Round(d);
 		}
+
+		public static System.Decimal Round(this System.Decimal d, int p)
+		{
+
+			return System.Math.Round(d, p);
+		}
+
 	}
 }
