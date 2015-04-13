@@ -23,7 +23,7 @@ echo API_KEY = %API_KEY%
 
 %NUGET% ^
 	push ^
-	artifacts\*.nupkg
+	artifacts\HolisticWare*.nupkg
 	
 pause
 ::@IF %ERRORLEVEL% NEQ 0 PAUSE	

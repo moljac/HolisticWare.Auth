@@ -9,7 +9,7 @@
 		http://semver.org/
 		-->
 		<version>
-			0.0.2-alpha
+			0.0.3-alpha
 		</version>
 		<title>
 			Xamarin.Auth
