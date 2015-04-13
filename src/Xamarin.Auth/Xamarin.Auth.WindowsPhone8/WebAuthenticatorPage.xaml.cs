@@ -31,8 +31,41 @@ namespace Xamarin.Auth.WindowsPhone
 			this.browser.Navigating += OnBrowserNavigating;
 			this.browser.Navigated += OnBrowserNavigated;
 			this.browser.NavigationFailed += OnBrowserNavigationFailed;
+
+			Windows.Phone.UI.Input.HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+
+			return;
 		}
 
+		private void HardwareButtons_BackPressed(object sender, Windows.Phone.UI.Input.BackPressedEventArgs e)
+		{
+			/*
+			System.Windows.Controls.Frame rootFrame = this.Content as Frame;
+			if (rootFrame != null && rootFrame.CanGoBack && MainWebView.CanGoBack)
+			{
+				e.Handled = true;
+				MainWebView.GoBack();
+			}
+			*/
+			return;
+		}
+
+		protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+		{
+			base.OnBackKeyPress(e);
+
+
+			if (browser.CanGoBack)
+			{
+				e.Cancel = true;
+				browser.GoBack();
+			}
+			else
+			{
+				return;
+			}
+		}
+	
 		private WebAuthenticator auth;
 
 		protected override async void OnNavigatedTo (NavigationEventArgs e)
@@ -40,7 +73,8 @@ namespace Xamarin.Auth.WindowsPhone
 			string key = NavigationContext.QueryString["key"];
 
 			this.auth = (WebAuthenticator)PhoneApplicationService.Current.State[key];
-			this.auth.Completed += (sender, args) => NavigationService.GoBack();
+			//this.auth.Completed += (sender, args) => NavigationService.GoBack(); // throws on BackButton
+			this.auth.Completed += auth_Completed;
 			this.auth.Error += OnAuthError;
 
 			PhoneApplicationService.Current.State.Remove (key);
@@ -52,6 +86,16 @@ namespace Xamarin.Auth.WindowsPhone
 			this.browser.Source = uri;
 
 			base.OnNavigatedTo (e);
+		}
+
+		void auth_Completed(object sender, AuthenticatorCompletedEventArgs e)
+		{
+			if (NavigationService.CanGoBack)
+			{
+				NavigationService.GoBack();
+			}
+
+			return;
 		}
 
 		protected override void OnNavigatedFrom (NavigationEventArgs e)
