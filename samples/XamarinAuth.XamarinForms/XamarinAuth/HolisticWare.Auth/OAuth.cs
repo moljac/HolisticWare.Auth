@@ -69,11 +69,61 @@ namespace HolisticWare.Auth
 			set;
 		}
 
-		public Dictionary<string, string> AccountProperties
+
+		//-------------------------------------------------------------------------
+		# region Property Dictionary<string,string> AccountProperties w Event post (AccountPropertiesChanged)
+		/// <summary>
+		/// AccountProperties
+		/// </summary>
+		public
+		  Dictionary<string,string>
+		  AccountProperties
 		{
-			get;
-			set;
-		}
+			get
+			{
+				return account_properties;
+			} // AccountProperties.get
+			set
+			{
+				//if (account_properties != value)		// do not write if equivalent/equal/same
+				{
+					// for multi threading apps uncomment lines beginnig with //MT:
+					//MT: lock(account_properties) // MultiThread safe				
+					{
+						account_properties = value;
+						if (null != AccountPropertiesChanged)
+						{
+							AccountPropertiesChanged(this, new EventArgs());
+						}
+					}
+				}
+			} // AccountProperties.set
+		} // AccountProperties
+
+		/// <summary>
+		/// private member field for holding AccountProperties data
+		/// </summary>
+		private
+			Dictionary<string,string>
+			account_properties
+			;
+
+		///<summary>
+		/// Event for wiring BusinessLogic object changes and presentation
+		/// layer notifications.
+		/// AccountPropertiesChanged (<propertyname>Changed) is intercepted by Windows Forms
+		/// 1.x and 2.0 event dispatcher 
+		/// and for some CLR types by WPF event dispatcher 
+		/// usually INotifyPropertyChanged and PropertyChanged event
+		///</summary>
+		public
+			event
+			EventHandler
+			AccountPropertiesChanged
+			;
+		# endregion Property Dictionary<string,string> AccountProperties w Event post (AccountPropertiesChanged)
+		//-------------------------------------------------------------------------
+	
 	}
 }
 
