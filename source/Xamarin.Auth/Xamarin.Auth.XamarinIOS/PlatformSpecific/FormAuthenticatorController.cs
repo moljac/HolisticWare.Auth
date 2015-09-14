@@ -92,9 +92,10 @@ namespace Xamarin.Auth
 			}
 		}
 
+		# region
 		///-------------------------------------------------------------------------------------------------
 		/// Pull Request - manually added/fixed
-		///		Marshalled NavigationService.GoBack to UI Thread #94
+		///		Added IsAuthenticated check #88
 		///		https://github.com/xamarin/Xamarin.Auth/pull/88
 		public override void ViewDidAppear(bool animated)
 		{
@@ -106,7 +107,7 @@ namespace Xamarin.Auth
 			}
 		}
 		///-------------------------------------------------------------------------------------------------
-		
+		# endregion
 
 		class FormDelegate : UITableViewDelegate
 		{

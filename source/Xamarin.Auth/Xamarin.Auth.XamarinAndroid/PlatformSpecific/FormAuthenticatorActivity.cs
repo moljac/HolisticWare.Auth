@@ -99,7 +99,7 @@ namespace Xamarin.Auth
 
 		///-------------------------------------------------------------------------------------------------
 		/// Pull Request - manually added/fixed
-		///		Marshalled NavigationService.GoBack to UI Thread #94
+		///		Added IsAuthenticated check #88
 		///		https://github.com/xamarin/Xamarin.Auth/pull/88
 		protected override void OnResume()
 		{

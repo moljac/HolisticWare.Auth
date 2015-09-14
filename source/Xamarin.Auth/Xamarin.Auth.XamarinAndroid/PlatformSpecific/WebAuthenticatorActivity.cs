@@ -70,10 +70,10 @@ namespace Xamarin.Auth
 			state.Authenticator.Completed += (s, e) => {
 				SetResult (e.IsAuthenticated ? Result.Ok : Result.Canceled);
 
-
+				# region
 				///-------------------------------------------------------------------------------------------------
 				/// Pull Request - manually added/fixed
-				///		Marshalled NavigationService.GoBack to UI Thread #94
+				///		Added IsAuthenticated check #88
 				///		https://github.com/xamarin/Xamarin.Auth/pull/88
 				if (e.IsAuthenticated)
 				{
@@ -91,6 +91,7 @@ namespace Xamarin.Auth
 					   }
 				}
 				///-------------------------------------------------------------------------------------------------
+				# endregion
 
 				Finish ();
 			};
@@ -129,9 +130,10 @@ namespace Xamarin.Auth
 		}
 
 
+		# region
 		///-------------------------------------------------------------------------------------------------
 		/// Pull Request - manually added/fixed
-		///		Marshalled NavigationService.GoBack to UI Thread #94
+		///		Added IsAuthenticated check #88
 		///		https://github.com/xamarin/Xamarin.Auth/pull/88
 		protected override void OnResume()
 		{
@@ -142,7 +144,7 @@ namespace Xamarin.Auth
 			}
 		}
 		///-------------------------------------------------------------------------------------------------
-
+		# endregion
 
 		void BeginLoadingInitialUrl ()
 		{
