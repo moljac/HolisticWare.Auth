@@ -28,7 +28,11 @@ namespace Xamarin.Auth
 #if XAMARIN_AUTH_INTERNAL
 	internal class WebAuthenticatorActivity : Activity
 #else
-	public class WebAuthenticatorActivity : Activity
+	/// Pull Request - manually added/fixed
+	///		Marshalled NavigationService.GoBack to UI Thread #94
+	///		https://github.com/xamarin/Xamarin.Auth/pull/88
+	//public class WebAuthenticatorActivity : Activity
+	public class WebAuthenticatorActivity : Android.Accounts.AccountAuthenticatorActivity
 #endif
 	{
 		WebView webView;
@@ -65,6 +69,29 @@ namespace Xamarin.Auth
 			//
 			state.Authenticator.Completed += (s, e) => {
 				SetResult (e.IsAuthenticated ? Result.Ok : Result.Canceled);
+
+
+				///-------------------------------------------------------------------------------------------------
+				/// Pull Request - manually added/fixed
+				///		Marshalled NavigationService.GoBack to UI Thread #94
+				///		https://github.com/xamarin/Xamarin.Auth/pull/88
+				if (e.IsAuthenticated)
+				{
+					   if (state.Authenticator.GetAccountResult != null)
+					   {
+						   var accountResult = state.Authenticator.GetAccountResult(e.Account);
+
+						   Bundle result = new Bundle();
+						   result.PutString(Android.Accounts.AccountManager.KeyAccountType, accountResult.AccountType);
+						   result.PutString(Android.Accounts.AccountManager.KeyAccountName, accountResult.Name);
+						   result.PutString(Android.Accounts.AccountManager.KeyAuthtoken, accountResult.Token);
+						   result.PutString(Android.Accounts.AccountManager.KeyAccountAuthenticatorResponse, e.Account.Serialize());
+           
+						   SetAccountAuthenticatorResult(result);
+					   }
+				}
+				///-------------------------------------------------------------------------------------------------
+
 				Finish ();
 			};
 			state.Authenticator.Error += (s, e) => {
@@ -100,6 +127,22 @@ namespace Xamarin.Auth
 				BeginLoadingInitialUrl ();
 			}
 		}
+
+
+		///-------------------------------------------------------------------------------------------------
+		/// Pull Request - manually added/fixed
+		///		Marshalled NavigationService.GoBack to UI Thread #94
+		///		https://github.com/xamarin/Xamarin.Auth/pull/88
+		protected override void OnResume()
+		{
+			base.OnResume();
+			if (state.Authenticator.AllowCancel && state.Authenticator.IsAuthenticated())
+			{
+				state.Authenticator.OnCancelled();
+			}
+		}
+		///-------------------------------------------------------------------------------------------------
+
 
 		void BeginLoadingInitialUrl ()
 		{

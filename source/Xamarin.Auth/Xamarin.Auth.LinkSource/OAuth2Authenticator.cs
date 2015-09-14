@@ -45,6 +45,30 @@ namespace Xamarin.Auth
 		string requestState;
 		bool reportedForgery = false;
 
+		# region
+		//---------------------------------------------------------------------------------------
+		/// Pull Request - manually added/fixed
+		///		OAuth2Authenticator changes to work with joind.in OAuth #91
+		///		https://github.com/xamarin/Xamarin.Auth/pull/91
+		///		
+		string accessTokenName = "access_token";
+		Dictionary<string, string> requestParams;
+
+
+		public Dictionary<string, string> RequestParameters 
+		{
+			get { return this.requestParams; }
+		}
+
+		public string AccessTokenName
+		{
+			get { return accessTokenName; }
+			set { accessTokenName = value; }
+		}
+		///---------------------------------------------------------------------------------------
+		# endregion
+ 
+
 		/// <summary>
 		/// Initializes a new <see cref="Xamarin.Auth.OAuth2Authenticator"/>
 		/// that authenticates using implicit granting (token).
@@ -88,6 +112,18 @@ namespace Xamarin.Auth
 			this.getUsernameAsync = getUsernameAsync;
 
 			this.accessTokenUrl = null;
+
+			# region
+			//---------------------------------------------------------------------------------------
+			/// Pull Request - manually added/fixed
+			///		OAuth2Authenticator changes to work with joind.in OAuth #91
+			///		https://github.com/xamarin/Xamarin.Auth/pull/91
+			///		
+			this.requestParams = new Dictionary<string, string>();
+			///---------------------------------------------------------------------------------------
+			# endregion
+
+
 		}
 
 		/// <summary>

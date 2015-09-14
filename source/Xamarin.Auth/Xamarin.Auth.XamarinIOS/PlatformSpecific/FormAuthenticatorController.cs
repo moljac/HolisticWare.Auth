@@ -92,6 +92,22 @@ namespace Xamarin.Auth
 			}
 		}
 
+		///-------------------------------------------------------------------------------------------------
+		/// Pull Request - manually added/fixed
+		///		Marshalled NavigationService.GoBack to UI Thread #94
+		///		https://github.com/xamarin/Xamarin.Auth/pull/88
+		public override void ViewDidAppear(bool animated)
+		{
+			base.ViewDidAppear(animated);
+
+			if (authenticator.AllowCancel && authenticator.IsAuthenticated())
+			{
+				authenticator.OnCancelled();
+			}
+		}
+		///-------------------------------------------------------------------------------------------------
+		
+
 		class FormDelegate : UITableViewDelegate
 		{
 			FormAuthenticatorController controller;
@@ -295,6 +311,7 @@ namespace Xamarin.Auth
 				}
 			}
 		}
+
 	}
 }
 

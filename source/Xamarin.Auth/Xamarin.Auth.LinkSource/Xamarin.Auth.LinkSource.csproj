@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="AccountResult.cs" />
     <Compile Include="AccountStore.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Authenticator.cs" />

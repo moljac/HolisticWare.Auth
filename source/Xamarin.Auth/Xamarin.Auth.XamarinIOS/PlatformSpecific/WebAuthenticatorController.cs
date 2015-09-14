@@ -63,7 +63,16 @@ namespace Xamarin.Auth
 					UIBarButtonSystemItem.Cancel,
 					delegate {
 					Cancel ();
-				});				
+					# region
+					//---------------------------------------------------------------------------------------
+					/// Pull Request - manually added/fixed
+					///		OAuth2Authenticator changes to work with joind.in OAuth #91
+					///		https://github.com/xamarin/Xamarin.Auth/pull/91
+					///		
+					DismissViewControllerAsync(true);
+					///---------------------------------------------------------------------------------------
+					# endregion
+					});				
 			}
 
 			activity = new UIActivityIndicatorView (UIActivityIndicatorViewStyle.White);
@@ -173,6 +182,23 @@ namespace Xamarin.Auth
 				this.ShowError ("Authentication Error", e.Message, after);
 			}
 		}
+
+		# region
+		///-------------------------------------------------------------------------------------------------
+		/// Pull Request - manually added/fixed
+		///		Added IsAuthenticated check #88
+		///		https://github.com/xamarin/Xamarin.Auth/pull/88
+		public override void ViewDidAppear(bool animated)
+		 {
+			 base.ViewDidAppear(animated);
+
+			 if (authenticator.AllowCancel && authenticator.IsAuthenticated())
+			 {
+				 Cancel();
+			 }
+		 }
+		///---------------------------------------------------------------------------------------
+		# endregion
 
 		protected class WebViewDelegate : UIWebViewDelegate
 		{

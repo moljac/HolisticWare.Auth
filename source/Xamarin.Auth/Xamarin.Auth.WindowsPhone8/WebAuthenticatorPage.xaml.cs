@@ -92,7 +92,16 @@ namespace Xamarin.Auth.WindowsPhone
 		{
 			if (NavigationService.CanGoBack)
 			{
-				NavigationService.GoBack();
+				// Pull Request - manually added/fixed
+				//		Marshalled NavigationService.GoBack to UI Thread #94
+				//		https://github.com/xamarin/Xamarin.Auth/pull/94
+				Dispatcher.BeginInvoke
+				(
+					() =>
+					{
+						NavigationService.GoBack();
+					}
+				);
 			}
 
 			return;

@@ -84,6 +84,19 @@ namespace Xamarin.Auth
 			Title = "Authenticate";
 			HasCompleted = false;
 			AllowCancel = true;
+
+
+			# region
+			//---------------------------------------------------------------------------------------
+			/// Pull Request - manually added/fixed
+			///		Added IsAuthenticated check #88
+			///		https://github.com/xamarin/Xamarin.Auth/pull/88
+			///		
+			IsAuthenticated = () => false;
+			//---------------------------------------------------------------------------------------
+			# endregion
+	
+			return;
 		}
 
 #if PLATFORM_ANDROID
@@ -219,6 +232,26 @@ namespace Xamarin.Auth
 			action ();
 #endif
 		}
+
+
+		# region
+		//---------------------------------------------------------------------------------------
+		/// Pull Request - manually added/fixed
+		///		Added IsAuthenticated check #88
+		///		https://github.com/xamarin/Xamarin.Auth/pull/88
+		///		
+		/// <summary>
+		/// Used by the ui to determine if it should stop authenticating
+		/// </summary>
+		public Func<bool> IsAuthenticated { get; set; }
+
+		/// <summary>
+		/// Used by Android to fill in the result on the activity
+		/// </summary>
+		public Func<Account, AccountResult> GetAccountResult { get; set; }
+		//---------------------------------------------------------------------------------------
+		# endregion
+
 	}
 
 	/// <summary>
@@ -307,6 +340,7 @@ namespace Xamarin.Auth
 			Message = exception.GetUserMessage ();
 			Exception = exception;
 		}
+
 	}
 }
 
