@@ -13,7 +13,9 @@ namespace Xamarin.Auth.SampleData
 				OAuth_UriAuthorization = new Uri("https://m.facebook.com/dialog/oauth/"), 
 				OAuth_UriCallbackAKARedirect = new Uri("http://xamarin.com"),
 			};
-			 
+
+			TestCases.Add(oauth2);
+			
 			return;
 		}
 	}

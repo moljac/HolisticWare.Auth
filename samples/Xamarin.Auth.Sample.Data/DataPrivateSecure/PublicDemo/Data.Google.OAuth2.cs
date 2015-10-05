@@ -21,7 +21,9 @@ namespace Xamarin.Auth.SampleData
 				OAuth_UriAuthorization = new Uri("https://accounts.google.com/o/oauth2/auth"), 
 				OAuth_UriCallbackAKARedirect = new Uri("http://xamarin.com"),
 			};
-			 
+
+			TestCases.Add(oauth2);
+			
 			return;
 		}
 	}

@@ -38,7 +38,9 @@ namespace Xamarin.Auth.SampleData
 								), 
 				OAuth_UriCallbackAKARedirect = new Uri("https://xamarin.com/"),
 			};
-			 
+
+			TestCases.Add(oauth2);
+
 			return;
 		}
 	}

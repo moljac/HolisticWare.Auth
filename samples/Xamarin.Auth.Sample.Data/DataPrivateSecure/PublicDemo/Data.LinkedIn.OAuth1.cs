@@ -16,6 +16,8 @@ namespace Xamarin.Auth.SampleData
 				OAuth1_UriAccessToken = new Uri("https://api.linkedin.com/uas/oauth/accessToken"),
 			};
 
+			TestCases.Add(oauth1);
+
 			return;
 		}
 	}

@@ -31,6 +31,8 @@ namespace Xamarin.Auth.SampleData
 	///
 	public partial class Data
 	{
+		public static List<HolisticWare.Auth.OAuth> TestCases = null;
+
 		HolisticWare.Auth.OAuth oauth = null;
 		HolisticWare.Auth.OAuth1 oauth1 = null;
 		HolisticWare.Auth.OAuth2 oauth2 = null;
@@ -74,5 +76,11 @@ namespace Xamarin.Auth.SampleData
 		partial void SetSensitiveDataLinkedInOAuth2();
 		//---------------------------------------------------------------------------------
 
+		static Data()
+		{
+			TestCases = new List<HolisticWare.Auth.OAuth>();
+
+			return;
+		}
 	}
 }

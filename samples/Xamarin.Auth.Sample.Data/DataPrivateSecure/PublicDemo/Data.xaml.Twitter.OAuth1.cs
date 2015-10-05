@@ -16,6 +16,8 @@ namespace Xamarin.Auth.SampleData
 				OAuth1_UriAccessToken = new Uri("https://api.twitter.com/oauth/access_token"),
 			};
 
+			TestCases.Add(oauth1);
+
 			return;
 		}
 	}

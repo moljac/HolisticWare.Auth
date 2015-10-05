@@ -19,7 +19,9 @@ namespace Xamarin.Auth.SampleData
 				OAuth_UriAuthorization = new Uri("https://login.live.com/oauth20_authorize.srf"), 
 				OAuth_UriCallbackAKARedirect = new Uri("http://xamarin.com"),
 			};
-			 
+
+			TestCases.Add(oauth2);
+
 			return;
 		}
 	}
