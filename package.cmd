@@ -1,12 +1,12 @@
 @echo off
 
-set NUGET=.nuget\nuget
+set NUGET=.nuget\NuGet.exe
 
 del /q artifacts\*.*
 
 %NUGET% ^
 	pack ^
-	"src.HolisticWare\HolisticWare.Auth.nuspec" ^
+	"nuget\HolisticWare.Auth.nuspec" ^
 	-Symbols ^
 	-OutputDirectory artifacts ^
 	-Build ^
@@ -16,7 +16,7 @@ del /q artifacts\*.*
 :: this nuget wiil be unpacked and folder structure used to pack the last one
 %NUGET% ^
 	pack ^
-	"src\Xamarin.Auth.Unpack.nuspec" ^
+	"nuget\Xamarin.Auth.Unpack.nuspec" ^
 	-Symbols ^
 	-OutputDirectory artifacts ^
 	-Build ^
@@ -25,7 +25,7 @@ del /q artifacts\*.*
 
 %NUGET% ^
 	pack ^
-	"src\xamarin[]duplo-dep-nugets\nuspec\Xamarin.Auth.nuspec" ^
+	"nuget\xamarin[]duplo-dep-nugets\nuspec\Xamarin.Auth.nuspec" ^
 	-Symbols ^
 	-OutputDirectory artifacts ^
 	-Build ^

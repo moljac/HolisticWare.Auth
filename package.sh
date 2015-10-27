@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NUGET=.nuget\nuget
+NUGET=.nuget\NuGet.exe
 
 %NUGET% ^
 	pack ^
