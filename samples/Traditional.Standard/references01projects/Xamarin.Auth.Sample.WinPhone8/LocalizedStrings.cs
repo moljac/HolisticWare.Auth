@@ -1,14 +1,14 @@
-﻿using Xamarin.Auth.Sample.WinPhone.Resources;
+﻿using Xamarin.Auth.Sample.WinPhone8.Resources;
 
-namespace Xamarin.Auth.Sample.WinPhone
+namespace Xamarin.Auth.Sample.WinPhone8
 {
-	/// <summary>
-	/// Provides access to string resources.
-	/// </summary>
-	public class LocalizedStrings
-	{
-		private static AppResources _localizedResources = new AppResources();
+    /// <summary>
+    /// Provides access to string resources.
+    /// </summary>
+    public class LocalizedStrings
+    {
+        private static AppResources _localizedResources = new AppResources();
 
-		public AppResources LocalizedResources { get { return _localizedResources; } }
-	}
+        public AppResources LocalizedResources { get { return _localizedResources; } }
+    }
 }

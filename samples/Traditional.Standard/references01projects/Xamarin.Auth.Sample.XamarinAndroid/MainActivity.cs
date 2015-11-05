@@ -145,7 +145,8 @@ namespace Xamarin.Auth.Sample.XamarinAndroid
 
 			builder.SetPositiveButton ("Ok", (o, e) => { });
 			builder.Create().Show();
-			
+
+			return;	
 		}
 	}
 }

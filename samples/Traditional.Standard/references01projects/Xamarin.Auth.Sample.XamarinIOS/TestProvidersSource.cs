@@ -2,8 +2,15 @@
 using System;
 using System.Collections.Generic;
 
+#if ! __CLASSIC__
 using Foundation;
 using UIKit;
+#else
+using MonoTouch.Foundation;
+using MonoTouch.UIKit;
+
+using nint=System.Int32;
+#endif
 
 namespace Xamarin.Auth.Sample.XamarinIOS
 {

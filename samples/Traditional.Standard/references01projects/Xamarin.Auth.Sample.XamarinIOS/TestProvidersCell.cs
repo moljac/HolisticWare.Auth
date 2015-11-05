@@ -2,10 +2,15 @@
 using System;
 using System.Text;
 
+#if ! __CLASSIC__
 using Foundation;
 using UIKit;
+#else
+using MonoTouch.Foundation;
+using MonoTouch.UIKit;
+#endif
 
-using Xamarin.Auth.SampleData;
+using global::Xamarin.Auth.SampleData;
 
 namespace Xamarin.Auth.Sample.XamarinIOS
 {
@@ -83,7 +88,6 @@ namespace Xamarin.Auth.Sample.XamarinIOS
 			UITableView sv2 = (UITableView) sv1.Superview;
 			UIWindow sv3 = (UIWindow) sv2.Superview;
 			sv3.RootViewController.PresentViewController(vc, true, null);
-
 
 			return;
 		}

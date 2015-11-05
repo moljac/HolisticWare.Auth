@@ -2,7 +2,7 @@
 
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US"/>
-  <App xmlns="" ProductID="{75211e06-b829-4dc3-b365-31bb47ba5105}" Title="Xamarin.Auth.Sample.WinPhone" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal"  Author="Xamarin.Auth.Sample.WinPhone author" Description="Sample description" Publisher="Xamarin.Auth.Sample.WinPhone" PublisherID="{f1e99367-30b5-4bca-88fa-654606065f19}">
+  <App xmlns="" ProductID="{83557c1f-639d-4c61-88cf-0c3cf14b7abc}" Title="Xamarin.Auth.Sample.WinPhone8" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal"  Author="Xamarin.Auth.Sample.WinPhone8 author" Description="Sample description" Publisher="Xamarin.Auth.Sample.WinPhone8" PublisherID="{526ec03b-60ee-441b-ab47-2a05ad25ae9f}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING"/>
@@ -15,12 +15,12 @@
       <DefaultTask  Name ="_default" NavigationPage="MainPage.xaml"/>
     </Tasks>
     <Tokens>
-      <PrimaryToken TokenID="Xamarin.Auth.Sample.WinPhoneToken" TaskName="_default">
+      <PrimaryToken TokenID="Xamarin.Auth.Sample.WinPhone8Token" TaskName="_default">
         <TemplateFlip>
           <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileSmall.png</SmallImageURI>
           <Count>0</Count>
           <BackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileMedium.png</BackgroundImageURI>
-          <Title>Xamarin.Auth.Sample.WinPhone</Title>
+          <Title>Xamarin.Auth.Sample.WinPhone8</Title>
           <BackContent></BackContent>
           <BackBackgroundImageURI></BackBackgroundImageURI>
           <BackTitle></BackTitle>

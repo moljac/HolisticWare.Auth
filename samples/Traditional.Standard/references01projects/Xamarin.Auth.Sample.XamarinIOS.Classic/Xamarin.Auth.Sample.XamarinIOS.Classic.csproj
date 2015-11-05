@@ -17,7 +17,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>DEBUG;__CLASSIC__</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -103,9 +103,34 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Xamarin.Auth.Sample.XamarinIOS\AppDelegate.cs">
+      <Link>AppDelegate.cs</Link>
+    </Compile>
+    <Compile Include="..\Xamarin.Auth.Sample.XamarinIOS\TestProvidersCell.cs">
+      <Link>TestProvidersCell.cs</Link>
+    </Compile>
+    <Compile Include="..\Xamarin.Auth.Sample.XamarinIOS\TestProvidersController.cs">
+      <Link>TestProvidersController.cs</Link>
+    </Compile>
+    <Compile Include="..\Xamarin.Auth.Sample.XamarinIOS\TestProvidersSource.cs">
+      <Link>TestProvidersSource.cs</Link>
+    </Compile>
     <Compile Include="Main.cs" />
-    <Compile Include="AppDelegate.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Xamarin.Auth.Sample.Data\Xamarin.Auth.SampleData.csproj">
+      <Project>{AF395E40-6F1E-41E3-BA23-12E134F0D38F}</Project>
+      <Name>Xamarin.Auth.SampleData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\source\XamarinForms\Xamarin.Auth.Helpers\Xamarin.Auth.Helpers.csproj">
+      <Project>{2CF4D47E-E4B0-454B-9015-1E76EE30C36E}</Project>
+      <Name>Xamarin.Auth.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\source\Xamarin.Auth.XamarinIOS.Classic\Xamarin.Auth.XamarinIOS.Classic.csproj">
+      <Project>{4783294D-8B20-4EBE-90F1-602BF7DD584E}</Project>
+      <Name>Xamarin.Auth.XamarinIOS.Classic</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

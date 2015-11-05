@@ -1,8 +1,13 @@
 ﻿
 using System;
 
+#if ! __CLASSIC__
 using Foundation;
 using UIKit;
+#else
+using MonoTouch.Foundation;
+using MonoTouch.UIKit;
+#endif
 
 namespace Xamarin.Auth.Sample.XamarinIOS
 {
