@@ -61,6 +61,5 @@ Output:
 ### Links/References
 
 *	[https://forums.xamarin.com/discussion/50727/unable-to-deploy-debug-build-to-device-with-latest-version](https://forums.xamarin.com/discussion/50727/unable-to-deploy-debug-build-to-device-with-latest-version)
-
-
+*	[https://github.com/moljac/HolisticWare.Auth/blob/master/external/docs/readme.moljac.20151106.md#ios-sdk-and-xcode-version-errors](https://github.com/moljac/HolisticWare.Auth/blob/master/external/docs/readme.moljac.20151106.md#ios-sdk-and-xcode-version-errors)
 
