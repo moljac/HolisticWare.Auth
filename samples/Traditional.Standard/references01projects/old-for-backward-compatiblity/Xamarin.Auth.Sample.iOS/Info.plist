@@ -14,5 +14,9 @@
 	</array>
 	<key>MinimumOSVersion</key>
 	<string>5.2</string>
+	<key>CFBundleDisplayName</key>
+	<string>Xamarin.Auth.Sample.iOS</string>
+	<key>CFBundleIdentifier</key>
+	<string>Xamarin.Auth.Sample.iOS</string>
 </dict>
 </plist>

@@ -42,6 +42,11 @@
     <ConsolePause>False</ConsolePause>
     <MtouchDebug>True</MtouchDebug>
     <CodesignKey>iPhone Developer</CodesignKey>
+    <IpaPackageName>
+    </IpaPackageName>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>ARMv7</MtouchArch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -99,9 +104,9 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\source\Xamarin.Auth.XamarinIOS.Classic\Xamarin.Auth.XamarinIOS.Classic.csproj">
-      <Project>{4783294D-8B20-4EBE-90F1-602BF7DD584E}</Project>
-      <Name>Xamarin.Auth.XamarinIOS.Classic</Name>
+    <ProjectReference Include="..\..\..\..\..\source\Xamarin.Auth.XamarinIOS-Classic\Xamarin.Auth.XamarinIOS-Classic.csproj">
+      <Project>{8F5F3994-1BE1-4503-997A-800B764322B2}</Project>
+      <Name>Xamarin.Auth.XamarinIOS-Classic</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>
