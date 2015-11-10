@@ -45,7 +45,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <MtouchArch>ARMv7</MtouchArch>
+    <MtouchArch>ARMv7, ARMv7s</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchProfiling>true</MtouchProfiling>
     <CodesignKey>iPhone Developer</CodesignKey>
@@ -58,15 +58,20 @@
     <MtouchExtraArgs>--registrar:legacy</MtouchExtraArgs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
-    <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\iPhone\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <MtouchArch>ARMv7</MtouchArch>
+    <MtouchArch>ARMv7, ARMv7s</MtouchArch>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
+    <IpaPackageName>
+    </IpaPackageName>
+    <MtouchI18n>
+    </MtouchI18n>
+    <DefineConstants>__CLASSIC__</DefineConstants>
+    <MtouchLink>None</MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>full</DebugType>
@@ -99,6 +104,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
+    <Reference Include="System.Json" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
@@ -106,7 +112,8 @@
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
-    <None Include="packages.config" />
+    <None Include="SampleData\Providers\.gitignore" />
+    <None Include="SampleData\Providers\readme.md" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\Xamarin.Auth.Sample.XamarinIOS\AppDelegate.cs">
@@ -123,13 +130,33 @@
     </Compile>
     <Compile Include="Main.cs" />
   </ItemGroup>
+  <!--
+  ======================================================================================
+  Classes with partial methods 
+  		*.secure.cs
+  			actual secure/secrt/private data in partial methods
+  -->
+  <ItemGroup>
+    <Compile Include="SampleData\AuthenticationResult.cs" />
+    <Compile Include="SampleData\Data.cs" />
+    <Compile Include="SampleData\Providers\Data.Facebook.OAuth2.cs" />
+    <Compile Include="SampleData\Providers\Data.Github.OAuth2.cs" />
+    <Compile Include="SampleData\Providers\Data.Google.OAuth2.cs" />
+    <Compile Include="SampleData\Providers\Data.Instagram.OAuth2.cs" />
+    <Compile Include="SampleData\Providers\Data.LinkedIn.OAuth1.cs" />
+    <Compile Include="SampleData\Providers\Data.LinkedIn.OAuth2.cs" />
+    <Compile Include="SampleData\Providers\Data.MicrosoftLive.OAuth2.cs" />
+    <Compile Include="SampleData\Providers\Data.Twitter.OAuth1.cs" />
+    <Compile Include="..\..\..\Xamarin.Auth.Sample.Data\SampleData\Providers\*.secure.cs">
+    	 <Link>SampleData\Providers\*.secure.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <!--
+  ======================================================================================
+  -->
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Xamarin.Auth.Sample.Data\Xamarin.Auth.SampleData.csproj">
-      <Project>{AF395E40-6F1E-41E3-BA23-12E134F0D38F}</Project>
-      <Name>Xamarin.Auth.SampleData</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\..\source\XamarinForms\Xamarin.Auth.Helpers\Xamarin.Auth.Helpers.csproj">
       <Project>{2CF4D47E-E4B0-454B-9015-1E76EE30C36E}</Project>
       <Name>Xamarin.Auth.Helpers</Name>
@@ -138,5 +165,8 @@
       <Project>{8F5F3994-1BE1-4503-997A-800B764322B2}</Project>
       <Name>Xamarin.Auth.XamarinIOS-Classic</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SampleData\" />
   </ItemGroup>
 </Project>

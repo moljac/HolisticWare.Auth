@@ -57,21 +57,6 @@
     <None Include="SampleData\Providers\readme.md" />
     <Compile Include="SampleData\AuthenticationResult.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ClassSensitive\ClassSensitive.cs" />
-    <Compile Include="ClassSensitive\ClassSensitive.PrivateSecureHidden.cs">
-      <DependentUpon>ClassSensitive.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ClassSensitive\ClassSensitive.PublicNonCritical.cs">
-      <DependentUpon>ClassSensitive.cs</DependentUpon>
-    </Compile>
-    <Content Include="ClassSensitive\.gitignore">
-      <DependentUpon>ClassSensitive.cs</DependentUpon>
-    </Content>
-    <None Include="ClassSensitive\readme.md">
-      <DependentUpon>ClassSensitive.cs</DependentUpon>
-    </None>
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

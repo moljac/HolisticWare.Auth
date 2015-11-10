@@ -62,9 +62,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <IpaPackageName>
+    </IpaPackageName>
+    <MtouchLink>None</MtouchLink>
+    <MtouchI18n>
+    </MtouchI18n>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>full</DebugType>
@@ -97,6 +103,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Json" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json">
@@ -109,7 +116,8 @@
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
-    <None Include="packages.config" />
+    <None Include="SampleData\Providers\.gitignore" />
+    <None Include="SampleData\Providers\readme.md" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -118,13 +126,33 @@
     <Compile Include="TestProvidersCell.cs" />
     <Compile Include="TestProvidersSource.cs" />
   </ItemGroup>
+  <!--
+  ======================================================================================
+  Classes with partial methods 
+  		*.secure.cs
+  			actual secure/secrt/private data in partial methods
+  -->
+  <ItemGroup>
+    <Compile Include="SampleData\AuthenticationResult.cs" />
+    <Compile Include="SampleData\Data.cs" />
+    <Compile Include="SampleData\Providers\Data.Facebook.OAuth2.cs" />
+    <Compile Include="SampleData\Providers\Data.Github.OAuth2.cs" />
+    <Compile Include="SampleData\Providers\Data.Google.OAuth2.cs" />
+    <Compile Include="SampleData\Providers\Data.Instagram.OAuth2.cs" />
+    <Compile Include="SampleData\Providers\Data.LinkedIn.OAuth1.cs" />
+    <Compile Include="SampleData\Providers\Data.LinkedIn.OAuth2.cs" />
+    <Compile Include="SampleData\Providers\Data.MicrosoftLive.OAuth2.cs" />
+    <Compile Include="SampleData\Providers\Data.Twitter.OAuth1.cs" />
+    <Compile Include="..\..\..\Xamarin.Auth.Sample.Data\SampleData\Providers\*.secure.cs">
+    	 <Link>SampleData\Providers\*.secure.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <!--
+  ======================================================================================
+  -->
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Xamarin.Auth.Sample.Data\Xamarin.Auth.SampleData.csproj">
-      <Project>{AF395E40-6F1E-41E3-BA23-12E134F0D38F}</Project>
-      <Name>Xamarin.Auth.SampleData</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\..\source\XamarinForms\Xamarin.Auth.Helpers\Xamarin.Auth.Helpers.csproj">
       <Project>{2CF4D47E-E4B0-454B-9015-1E76EE30C36E}</Project>
       <Name>Xamarin.Auth.Helpers</Name>
@@ -133,5 +161,8 @@
       <Project>{15BE2387-8E72-4C0B-8A6A-460EF5FA4539}</Project>
       <Name>Xamarin.Auth.XamarinIOS</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SampleData\" />
   </ItemGroup>
 </Project>

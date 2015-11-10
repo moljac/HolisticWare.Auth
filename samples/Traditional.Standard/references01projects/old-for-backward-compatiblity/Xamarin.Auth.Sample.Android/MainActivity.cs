@@ -5,6 +5,8 @@ using Android.App;
 using Android.Widget;
 using Android.OS;
 
+using global::Xamarin.Auth;
+
 namespace Xamarin.Auth.Sample.Android
 {
 	[Activity (Label = "Xamarin.Auth Sample (Android)", MainLauncher = true)]
