@@ -5,7 +5,7 @@ namespace Xamarin.Auth.SampleData
 {
 	public partial class Data 
 	{
-		static partial void SetSensitiveDataGoogleOAuth2()
+		static partial void SetPublicDemoDataGoogleOAuth2()
 		{
 			// https://www.snip2code.com/Snippet/245686/Xamarin-Google-and-Facebook-authenticati
 			/*
@@ -18,7 +18,7 @@ namespace Xamarin.Auth.SampleData
 			oauth2 = new Xamarin.Auth.Helpers.OAuth2()
 			{
 				Description = "Google OAuth2",
-				OAuth_IdApplication_IdAPI_KeyAPI_IdClient_IdCustomer = "1093596514437-ibfmn92v4bf27tto068heesgaohhto7n.apps.googleusercontent.com",
+				OAuth_IdApplication_IdAPI_KeyAPI_IdClient_IdCustomer = "",
 				OAuth2_Scope = "https://www.googleapis.com/auth/userinfo.email",
 				OAuth_UriAuthorization = new Uri("https://accounts.google.com/o/oauth2/auth"), 
 				OAuth_UriCallbackAKARedirect = new Uri("http://xamarin.com"),

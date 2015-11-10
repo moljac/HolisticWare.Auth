@@ -5,15 +5,14 @@ namespace Xamarin.Auth.SampleData
 {
 	public partial class Data 
 	{
-		static partial void SetSensitiveDataGithubOAuth2()
+		static partial void SetPublicDemoDataInstagramOAuth2()
 		{
-			/// https://developer.github.com/v3/oauth/#scopes
 			oauth2 = new Xamarin.Auth.Helpers.OAuth2()
 			{
-				Description = "Github OAuth2",
-				OAuth_IdApplication_IdAPI_KeyAPI_IdClient_IdCustomer = "5b5c2d2d76e2fd9a804b",
-				OAuth2_Scope = "user", // "", "user",
-				OAuth_UriAuthorization = new Uri("https://github.com/login/oauth/authorize"), 
+				Description = "Instagram OAuth2",
+				OAuth_IdApplication_IdAPI_KeyAPI_IdClient_IdCustomer = "",
+				OAuth2_Scope = "basic",
+				OAuth_UriAuthorization = new Uri("https://api.instagram.com/oauth/authorize/"), 
 				OAuth_UriCallbackAKARedirect = new Uri("http://xamarin.com"),
 				AllowCancel = true,
 			};

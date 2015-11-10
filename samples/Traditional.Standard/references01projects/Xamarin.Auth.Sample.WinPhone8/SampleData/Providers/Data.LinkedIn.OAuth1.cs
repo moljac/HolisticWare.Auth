@@ -1,11 +1,10 @@
 ﻿using System;
-using Xamarin.Auth.Helpers;
 
 namespace Xamarin.Auth.SampleData
 {
 	public partial class Data 
 	{
-		static partial void SetSensitiveDataLinkedInOAuth1()
+		static partial void SetPublicDemoDataLinkedInOAuth1()
 		{
 			oauth1 = new Xamarin.Auth.Helpers.OAuth1()
 			{

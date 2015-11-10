@@ -5,7 +5,7 @@ namespace Xamarin.Auth.SampleData
 {
 	public partial class Data 
 	{
-		static partial void SetSensitiveDataLinkedInOAuth2()
+		static partial void SetPublicDemoDataLinkedInOAuth2()
 		{
 			/*	
 			https://www.linkedin.com/secure/developer
