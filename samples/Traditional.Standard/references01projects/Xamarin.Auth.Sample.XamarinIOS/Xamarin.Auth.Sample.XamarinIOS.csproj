@@ -125,6 +125,7 @@
     <Compile Include="TestProvidersController.cs" />
     <Compile Include="TestProvidersCell.cs" />
     <Compile Include="TestProvidersSource.cs" />
+    <Compile Include="SampleData\Providers\Data.Github.OAuth2.cs" />
   </ItemGroup>
   <!--
   ======================================================================================
@@ -136,7 +137,6 @@
     <Compile Include="SampleData\AuthenticationResult.cs" />
     <Compile Include="SampleData\Data.cs" />
     <Compile Include="SampleData\Providers\Data.Facebook.OAuth2.cs" />
-    <Compile Include="SampleData\Providers\Data.Github.OAuth2.cs" />
     <Compile Include="SampleData\Providers\Data.Google.OAuth2.cs" />
     <Compile Include="SampleData\Providers\Data.Instagram.OAuth2.cs" />
     <Compile Include="SampleData\Providers\Data.LinkedIn.OAuth1.cs" />
