@@ -46,23 +46,33 @@
 			Android.
 		</summary>
 		<tags>
-			xamarin, pcl,
+			xamarin,
+			pcl,
+			android, monoandroid, monodroid, xamarin.android,
+			ios,  monotouch, xamarin.ios
+			<!--
 			plugin for xamarin, plugin,
-			settings,
-			windows phone, winphone, wp8, winrt,
-			android, monoandroid, monodroid,
 			xamarin.forms,
-			ios,  monotouch
+			-->
+			windows phone, winphone, wp8,
+			<!--
+			wp81
+			windows 8, winrt,
+			-->
 		</tags>
 		<frameworkAssemblies>
 			<frameworkAssembly
 				assemblyName="System.Json"
-				targetFramework="MonoTouch0.0"
+				targetFramework="MonoTouch10"
 				/>
 			<frameworkAssembly
 				assemblyName="System.Json"
-				targetFramework="MonoAndroid0.0"
+				targetFramework="MonoAndroid10"
 				/>
+				<frameworkAssembly
+					assemblyName="System.Json"
+					targetFramework="Xamarin.iOS10"
+					/>
 		</frameworkAssemblies>
 	</metadata>
 	<files>
@@ -135,6 +145,6 @@
 			>
 		</file>
 		-->
-		
+
 	</files>
 </package>
