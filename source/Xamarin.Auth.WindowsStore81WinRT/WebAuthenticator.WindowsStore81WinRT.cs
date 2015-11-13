@@ -39,15 +39,17 @@ namespace Xamarin.Auth
 		/// <seealso cref="ClearCookiesBeforeLogin"/>
 		public async static void ClearCookies()
 		{
+            //await new WebView().ClearCookiesAsync();
             // there is no way to clear cache for WebView
             //http://blogs.msdn.com/b/wsdevsol/archive/2012/10/18/nine-things-you-need-to-know-about-webview.aspx#AN7
-            //await new WebView().ClearCookiesAsync();
+
+
         }
 
         protected override AuthenticateUIType GetPlatformUI()
 		{
-			Random r = new Random();
-			string key;
+			//Random r = new Random();
+			//string key;
 
             //do
             //{
