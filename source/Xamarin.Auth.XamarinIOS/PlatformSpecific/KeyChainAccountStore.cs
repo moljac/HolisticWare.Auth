@@ -43,7 +43,7 @@ namespace Xamarin.Auth
 
 		Account GetAccountFromRecord (SecRecord r)
 		{
-			var serializedData = NSString.FromData (r.Generic, NSStringEncoding.UTF8);
+			var serializedData = NSString.FromData (r.ValueData, NSStringEncoding.UTF8);
 			return Account.Deserialize (serializedData);
 		}
 
